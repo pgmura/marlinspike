@@ -76,7 +76,7 @@ var Marlinspike = (function () {
       try {
         var models = (0, _requireAll2['default'])({
           dirname: _path2['default'].resolve(this.hookPath, '../../models'),
-          filter: /(.+)\.js$/
+          filter: /(.+)(\.js|\.coffee)$/
         });
         this.mergeEntities('models', models);
       } catch (e) {
@@ -90,7 +90,7 @@ var Marlinspike = (function () {
       try {
         var policies = (0, _requireAll2['default'])({
           dirname: _path2['default'].resolve(this.hookPath, '../../policies'),
-          filter: /(.+)\.js$/
+          filter: /(.+)(\.js|\.coffee)$/
         });
         _lodash2['default'].extend(this.sails.hooks.policies.middleware, _lodash2['default'].mapKeys(policies, function (policy, key) {
           return key.toLowerCase();
@@ -106,7 +106,7 @@ var Marlinspike = (function () {
       try {
         var controllers = (0, _requireAll2['default'])({
           dirname: _path2['default'].resolve(this.hookPath, '../../controllers'),
-          filter: /(.+Controller)\.js$/,
+          filter: /(.+Controller)(\.js|\.coffee)$/,
           map: function map(name, path) {
             return name.replace(/Controller/, '');
           }
